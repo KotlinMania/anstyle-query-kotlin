@@ -64,7 +64,7 @@ internal fun clicolorForce(envLookup: (String) -> String?): Boolean {
 }
 
 internal fun noColor(envLookup: (String) -> String?): Boolean {
-    val value = envLookup("NO_COLOR") ?: ""
+    val value = envLookup("NO_COLOR").orEmpty()
     return value != ""
 }
 
@@ -94,7 +94,7 @@ internal fun termSupportsAnsiColor(
     }
 
 internal fun truecolor(envLookup: (String) -> String?): Boolean {
-    val value = envLookup("COLORTERM") ?: ""
+    val value = envLookup("COLORTERM").orEmpty()
     return value == "truecolor" || value == "24bit"
 }
 
